@@ -6,3 +6,6 @@ Merge:
 
 Change  commit massage after push the branch:
     -( edit description file and pull request ) to ( edit description file and pull request-- ).
+
+Remove Commit:
+    -Cherry pick description commit Remove in this branch.
