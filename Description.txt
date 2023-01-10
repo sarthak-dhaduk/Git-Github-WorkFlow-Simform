@@ -9,3 +9,6 @@ Change  commit massage after push the branch:
 
 Cherry Pick:
     First commit is apply on b1 branch then used cherry pick and commit move to master branch.
+
+Remove Commit:
+    -Cherry pick description commit Remove in b1 branch.
