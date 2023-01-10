@@ -1,5 +1,8 @@
 Pull requests:
     -Pull requests let you tell others about changes you've pushed to a branch in a repository on GitHub.
     
-Merge
+Merge:
     -Merging is Git's way of putting a forked history back together again.
+
+Change  commit massage after push the branch:
+    -( edit description file and pull request ) to ( edit description file and pull request-- ).
