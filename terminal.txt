@@ -1,0 +1,480 @@
+sarthak@sf-cpu-370:~/projects/git-prectical$ git init
+hint: Using 'master' as the name for the initial branch. This default branch name
+hint: is subject to change. To configure the initial branch name to use in all
+hint: of your new repositories, which will suppress this warning, call:
+hint: 
+hint:   git config --global init.defaultBranch <name>
+hint: 
+hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+hint: 'development'. The just-created branch can be renamed via this command:
+hint: 
+hint:   git branch -m <name>
+Initialized empty Git repository in /home/sarthak/projects/git-prectical/.git/
+sarthak@sf-cpu-370:~/projects/git-prectical$ git config --global user.name Sarthak
+sarthak@sf-cpu-370:~/projects/git-prectical$ git config --global user.name
+Sarthak
+sarthak@sf-cpu-370:~/projects/git-prectical$ git config --global user.email sarthak.d@simformsolutions.com
+sarthak@sf-cpu-370:~/projects/git-prectical$ git config --global user.email
+sarthak.d@simformsolutions.com
+sarthak@sf-cpu-370:~/projects/git-prectical$ git remote
+sarthak@sf-cpu-370:~/projects/git-prectical$ git remote add firstremote https://github.com/sarthak-dhaduk/git-prectical.git
+sarthak@sf-cpu-370:~/projects/git-prectical$ git remote
+firstremote
+sarthak@sf-cpu-370:~/projects/git-prectical$ git remote -v
+firstremote     https://github.com/sarthak-dhaduk/git-prectical.git (fetch)
+firstremote     https://github.com/sarthak-dhaduk/git-prectical.git (push)
+sarthak@sf-cpu-370:~/projects/git-prectical$ git clone https://github.com/sarthak-dhaduk/git-prectical.git
+Cloning into 'git-prectical'...
+warning: You appear to have cloned an empty repository.
+sarthak@sf-cpu-370:~/projects/git-prectical$ touch p&m.txt
+[1] 57016
+m.txt: command not found
+[1]+  Done                    touch p
+sarthak@sf-cpu-370:~/projects/git-prectical$ rm p 
+sarthak@sf-cpu-370:~/projects/git-prectical$ touch pull merge.txt
+sarthak@sf-cpu-370:~/projects/git-prectical$ rm pull 
+sarthak@sf-cpu-370:~/projects/git-prectical$ touch pull.txt
+sarthak@sf-cpu-370:~/projects/git-prectical$ rm merge.txt 
+sarthak@sf-cpu-370:~/projects/git-prectical$ git add -A
+error: 'git-prectical/' does not have a commit checked out
+fatal: adding files failed
+sarthak@sf-cpu-370:~/projects/git-prectical$ git add -A
+error: 'git-prectical/' does not have a commit checked out
+fatal: adding files failed
+sarthak@sf-cpu-370:~/projects/git-prectical$ git commit -m "add discription file"
+On branch master
+
+Initial commit
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        Description.txt
+        git-prectical/
+
+nothing added to commit but untracked files present (use "git add" to track)
+sarthak@sf-cpu-370:~/projects/git-prectical$ git add 
+Description.txt  git-prectical/   
+sarthak@sf-cpu-370:~/projects/git-prectical$ git add 
+Description.txt  git-prectical/   
+sarthak@sf-cpu-370:~/projects/git-prectical$ git add Description.txt 
+sarthak@sf-cpu-370:~/projects/git-prectical$ git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+        new file:   Description.txt
+
+sarthak@sf-cpu-370:~/projects/git-prectical$ 
+sarthak@sf-cpu-370:~/projects/git-prectical$ git commit -m "add discription file"
+[master (root-commit) a7099b3] add discription file
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 Description.txt
+sarthak@sf-cpu-370:~/projects/git-prectical$ git push -f firstremote master
+Enumerating objects: 3, done.
+Counting objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 226 bytes | 226.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+To https://github.com/sarthak-dhaduk/git-prectical.git
+ * [new branch]      master -> master
+sarthak@sf-cpu-370:~/projects/git-prectical$ git checkout -b b1
+Switched to a new branch 'b1'
+sarthak@sf-cpu-370:~/projects/git-prectical$ git add -A
+sarthak@sf-cpu-370:~/projects/git-prectical$ git commit -m "edit description file and pull request"
+[b1 642715d] edit description file and pull request
+ 1 file changed, 2 insertions(+)
+sarthak@sf-cpu-370:~/projects/git-prectical$ git checkout master 
+Switched to branch 'master'
+sarthak@sf-cpu-370:~/projects/git-prectical$ git merge b1
+Updating a7099b3..642715d
+Fast-forward
+ Description.txt | 2 ++
+ 1 file changed, 2 insertions(+)
+sarthak@sf-cpu-370:~/projects/git-prectical$ git checkout b1
+Switched to branch 'b1'
+sarthak@sf-cpu-370:~/projects/git-prectical$ git push -f firstremote b1
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 366 bytes | 366.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+remote: 
+remote: Create a pull request for 'b1' on GitHub by visiting:
+remote:      https://github.com/sarthak-dhaduk/git-prectical/pull/new/b1
+remote: 
+To https://github.com/sarthak-dhaduk/git-prectical.git
+ * [new branch]      b1 -> b1
+sarthak@sf-cpu-370:~/projects/git-prectical$ git add -A
+sarthak@sf-cpu-370:~/projects/git-prectical$ git commit -m "rebase b1 on master branch"
+[b1 bc615c4] rebase b1 on master branch
+ 1 file changed, 4 insertions(+), 1 deletion(-)
+sarthak@sf-cpu-370:~/projects/git-prectical$ git checkout master 
+Switched to branch 'master'
+sarthak@sf-cpu-370:~/projects/git-prectical$ git rebase b1
+Successfully rebased and updated refs/heads/master.
+sarthak@sf-cpu-370:~/projects/git-prectical$ git checkout b1
+Switched to branch 'b1'
+sarthak@sf-cpu-370:~/projects/git-prectical$ git push -f firstremote b1
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 407 bytes | 407.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+To https://github.com/sarthak-dhaduk/git-prectical.git
+   642715d..bc615c4  b1 -> b1
+sarthak@sf-cpu-370:~/projects/git-prectical$ git rebase -i HEAD~2
+Successfully rebased and updated refs/heads/b1.
+sarthak@sf-cpu-370:~/projects/git-prectical$ git rebase -i HEAD~2
+Successfully rebased and updated refs/heads/b1.
+sarthak@sf-cpu-370:~/projects/git-prectical$ git rebase -i HEAD~2
+Stopped at 642715d...  edit description file and pull request--
+You can amend the commit now, with
+
+  git commit --amend 
+
+Once you are satisfied with your changes, run
+
+  git rebase --continue
+sarthak@sf-cpu-370:~/projects/git-prectical$ git rebase --continue 
+Successfully rebased and updated refs/heads/b1.
+sarthak@sf-cpu-370:~/projects/git-prectical$ git push -f firstremote b1
+Everything up-to-date
+sarthak@sf-cpu-370:~/projects/git-prectical$ git log -2
+commit bc615c4ea5e84268e7b0c77ec413009a45dc4f14 (HEAD -> b1, firstremote/b1, master)
+Author: Sarthak <sarthak.d@simformsolutions.com>
+Date:   Tue Jan 10 12:12:30 2023 +0530
+
+    rebase b1 on master branch
+
+commit 642715d4c35d08f0ccfe0339d1c2df82381812ac
+Author: Sarthak <sarthak.d@simformsolutions.com>
+Date:   Tue Jan 10 12:05:32 2023 +0530
+
+    edit description file and pull request
+sarthak@sf-cpu-370:~/projects/git-prectical$ git doff
+git: 'doff' is not a git command. See 'git --help'.
+
+The most similar command is
+        diff
+sarthak@sf-cpu-370:~/projects/git-prectical$ git diff
+sarthak@sf-cpu-370:~/projects/git-prectical$ git rebase -i HEAD~2
+Stopped at 642715d...  edit description file and pull request
+You can amend the commit now, with
+
+  git commit --amend 
+
+Once you are satisfied with your changes, run
+
+  git rebase --continue
+sarthak@sf-cpu-370:~/projects/git-prectical$ git commit --amend 
+[detached HEAD 2a77429] edit description file and pull request--
+ Date: Tue Jan 10 12:05:32 2023 +0530
+ 1 file changed, 2 insertions(+)
+sarthak@sf-cpu-370:~/projects/git-prectical$ git rebase --continue 
+Successfully rebased and updated refs/heads/b1.
+sarthak@sf-cpu-370:~/projects/git-prectical$ git push -f firstremote b1
+Enumerating objects: 8, done.
+Counting objects: 100% (8/8), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (4/4), done.
+Writing objects: 100% (6/6), 666 bytes | 333.00 KiB/s, done.
+Total 6 (delta 1), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (1/1), done.
+To https://github.com/sarthak-dhaduk/git-prectical.git
+ + bc615c4...0a52a02 b1 -> b1 (forced update)
+sarthak@sf-cpu-370:~/projects/git-prectical$ git pull 
+There is no tracking information for the current branch.
+Please specify which branch you want to merge with.
+See git-pull(1) for details.
+
+    git pull <remote> <branch>
+
+If you wish to set tracking information for this branch you can do so with:
+
+    git branch --set-upstream-to=firstremote/<branch> b1
+
+sarthak@sf-cpu-370:~/projects/git-prectical$ git pull firstremote master
+remote: Enumerating objects: 3, done.
+remote: Counting objects: 100% (3/3), done.
+remote: Compressing objects: 100% (3/3), done.
+remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (3/3), 1.83 KiB | 936.00 KiB/s, done.
+From https://github.com/sarthak-dhaduk/git-prectical
+ * branch            master     -> FETCH_HEAD
+   a7099b3..1f2ca8b  master     -> firstremote/master
+Updating 0a52a02..1f2ca8b
+Fast-forward
+sarthak@sf-cpu-370:~/projects/git-prectical$ git checkout master
+Switched to branch 'master'
+sarthak@sf-cpu-370:~/projects/git-prectical$ git checkout b1
+Switched to branch 'b1'
+sarthak@sf-cpu-370:~/projects/git-prectical$ git add .
+sarthak@sf-cpu-370:~/projects/git-prectical$ git commit -m "description about commit msg"
+[b1 6ec39a0] description about commit msg
+ 1 file changed, 5 insertions(+), 2 deletions(-)
+sarthak@sf-cpu-370:~/projects/git-prectical$ git checkout master 
+Switched to branch 'master'
+sarthak@sf-cpu-370:~/projects/git-prectical$ git rebase b1
+Successfully rebased and updated refs/heads/master.
+sarthak@sf-cpu-370:~/projects/git-prectical$ git checkout b1
+Switched to branch 'b1'
+sarthak@sf-cpu-370:~/projects/git-prectical$ git add .
+sarthak@sf-cpu-370:~/projects/git-prectical$ git commit -m "cherry-pick on b1 branch to master branch"
+[b1 6bb5c61] cherry-pick on b1 branch to master branch
+ 1 file changed, 4 insertions(+), 1 deletion(-)
+sarthak@sf-cpu-370:~/projects/git-prectical$ git log
+commit 6bb5c61d7a84eeecbdf25c50a58620b3faf426c8 (HEAD -> b1)
+Author: Sarthak <sarthak.d@simformsolutions.com>
+Date:   Tue Jan 10 14:09:29 2023 +0530
+
+    cherry-pick on b1 branch to master branch
+
+commit 6ec39a095573d6f3da662a723bc432dbc1328725 (master)
+Author: Sarthak <sarthak.d@simformsolutions.com>
+Date:   Tue Jan 10 14:05:23 2023 +0530
+
+    description about commit msg
+
+commit 1f2ca8bb6950c66e5e6efe5954fc33e04dffb3a8 (firstremote/master)
+Merge: ae08ea9 0a52a02
+Author: Sarthak Dhaduk <119296371+sarthak-dhaduk@users.noreply.github.com>
+Date:   Tue Jan 10 12:59:44 2023 +0530
+
+    Merge pull request #3 from sarthak-dhaduk/b1
+    
+    B1
+
+commit 0a52a0212c5888d72b1b5493e5a84678f40e6498 (firstremote/b1)
+Author: Sarthak <sarthak.d@simformsolutions.com>
+Date:   Tue Jan 10 12:12:30 2023 +0530
+
+sarthak@sf-cpu-370:~/projects/git-prectical$ git checkout master
+Switched to branch 'master'
+sarthak@sf-cpu-370:~/projects/git-prectical$ git cherry-pick 6bb5c61d7a84eeecbdf25c50a58620b3faf426c8
+[master a46d2dd] cherry-pick on b1 branch to master branch
+ Date: Tue Jan 10 14:09:29 2023 +0530
+ 1 file changed, 4 insertions(+), 1 deletion(-)
+sarthak@sf-cpu-370:~/projects/git-prectical$ git push -f firstremote master
+Enumerating objects: 8, done.
+Counting objects: 100% (8/8), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (4/4), done.
+Writing objects: 100% (6/6), 771 bytes | 771.00 KiB/s, done.
+Total 6 (delta 1), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (1/1), done.
+To https://github.com/sarthak-dhaduk/git-prectical.git
+   1f2ca8b..a46d2dd  master -> master
+sarthak@sf-cpu-370:~/projects/git-prectical$ git checkout b1 
+Switched to branch 'b1'
+sarthak@sf-cpu-370:~/projects/git-prectical$ git reset HEAD~1
+Unstaged changes after reset:
+M       Description.txt
+sarthak@sf-cpu-370:~/projects/git-prectical$ git push -f firstremote b1
+Total 0 (delta 0), reused 0 (delta 0), pack-reused 0
+To https://github.com/sarthak-dhaduk/git-prectical.git
+   0a52a02..6ec39a0  b1 -> b1
+sarthak@sf-cpu-370:~/projects/git-prectical$ git add .
+sarthak@sf-cpu-370:~/projects/git-prectical$ git commit -m "4 points covered"
+[b1 900626d] 4 points covered
+ 1 file changed, 6 insertions(+), 1 deletion(-)
+sarthak@sf-cpu-370:~/projects/git-prectical$ git push -f firstremote b1
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 379 bytes | 379.00 KiB/s, done.
+Total 3 (delta 1), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+To https://github.com/sarthak-dhaduk/git-prectical.git
+   6ec39a0..900626d  b1 -> b1
+sarthak@sf-cpu-370:~/projects/git-prectical$ git reset HEAD~1
+Unstaged changes after reset:
+M       Description.txt
+sarthak@sf-cpu-370:~/projects/git-prectical$ git checkout Description.txt
+Updated 1 path from the index
+sarthak@sf-cpu-370:~/projects/git-prectical$ git add.
+git: 'add.' is not a git command. See 'git --help'.
+
+The most similar command is
+        add
+sarthak@sf-cpu-370:~/projects/git-prectical$ git commit -m "remove cherry-pick description part"
+On branch b1
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   Description.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+sarthak@sf-cpu-370:~/projects/git-prectical$ git add .
+sarthak@sf-cpu-370:~/projects/git-prectical$ git commit -m "remove cherry-pick description part"
+[b1 efb434a] remove cherry-pick description part
+ 1 file changed, 4 insertions(+), 1 deletion(-)
+sarthak@sf-cpu-370:~/projects/git-prectical$ git push -f firstremote b1
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 368 bytes | 184.00 KiB/s, done.
+Total 3 (delta 1), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+To https://github.com/sarthak-dhaduk/git-prectical.git
+ + 900626d...efb434a b1 -> b1 (forced update)
+sarthak@sf-cpu-370:~/projects/git-prectical$ git log
+commit efb434a84bb9b8ef96c295469747bca593bc70c7 (HEAD -> b1, firstremote/b1)
+Author: Sarthak <sarthak.d@simformsolutions.com>
+Date:   Tue Jan 10 14:33:09 2023 +0530
+
+    remove cherry-pick description part
+
+commit 6ec39a095573d6f3da662a723bc432dbc1328725
+Author: Sarthak <sarthak.d@simformsolutions.com>
+Date:   Tue Jan 10 14:05:23 2023 +0530
+
+    description about commit msg
+
+commit 1f2ca8bb6950c66e5e6efe5954fc33e04dffb3a8
+Merge: ae08ea9 0a52a02
+Author: Sarthak Dhaduk <119296371+sarthak-dhaduk@users.noreply.github.com>
+Date:   Tue Jan 10 12:59:44 2023 +0530
+
+    Merge pull request #3 from sarthak-dhaduk/b1
+    
+    B1
+
+commit 0a52a0212c5888d72b1b5493e5a84678f40e6498
+Author: Sarthak <sarthak.d@simformsolutions.com>
+Date:   Tue Jan 10 12:12:30 2023 +0530
+
+sarthak@sf-cpu-370:~/projects/git-prectical$ git checkout master 
+Switched to branch 'master'
+sarthak@sf-cpu-370:~/projects/git-prectical$ git cherry-pick efb434a84bb9b8ef96c295469747bca593bc70c7
+Auto-merging Description.txt
+CONFLICT (content): Merge conflict in Description.txt
+error: could not apply efb434a... remove cherry-pick description part
+hint: After resolving the conflicts, mark them with
+hint: "git add/rm <pathspec>", then run
+hint: "git cherry-pick --continue".
+hint: You can instead skip this commit with "git cherry-pick --skip".
+hint: To abort and get back to the state before "git cherry-pick",
+hint: run "git cherry-pick --abort".
+sarthak@sf-cpu-370:~/projects/git-prectical$ git checkout Description.txt
+error: path 'Description.txt' is unmerged
+sarthak@sf-cpu-370:~/projects/git-prectical$ git cherry-pick efb434a84bb9b8ef96c295469747bca593bc70c7
+error: Cherry-picking is not possible because you have unmerged files.
+hint: Fix them up in the work tree, and then use 'git add/rm <file>'
+hint: as appropriate to mark resolution and make a commit.
+fatal: cherry-pick failed
+sarthak@sf-cpu-370:~/projects/git-prectical$ git cherry-pick efb434a84bb9b8ef96c295469747bca593bc70c7
+error: your local changes would be overwritten by cherry-pick.
+hint: commit your changes or stash them to proceed.
+fatal: cherry-pick failed
+sarthak@sf-cpu-370:~/projects/git-prectical$ git checkout Description.txt
+Updated 1 path from the index
+sarthak@sf-cpu-370:~/projects/git-prectical$ git pull firstremote master 
+From https://github.com/sarthak-dhaduk/git-prectical
+ * branch            master     -> FETCH_HEAD
+fatal: You have not concluded your cherry-pick (CHERRY_PICK_HEAD exists).
+Please, commit your changes before you merge.
+sarthak@sf-cpu-370:~/projects/git-prectical$ git checkout 
+M       Description.txt
+warning: cancelling a cherry picking in progress
+sarthak@sf-cpu-370:~/projects/git-prectical$ git add .
+sarthak@sf-cpu-370:~/projects/git-prectical$ git commit -m "update description file"
+On branch master
+nothing to commit, working tree clean
+sarthak@sf-cpu-370:~/projects/git-prectical$ git add .
+sarthak@sf-cpu-370:~/projects/git-prectical$ git commit -m "git prectical done on master branch"
+[master b58fbab] git prectical done on master branch
+ 1 file changed, 4 insertions(+), 1 deletion(-)
+sarthak@sf-cpu-370:~/projects/git-prectical$ git push -f firstremote master
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 362 bytes | 362.00 KiB/s, done.
+Total 3 (delta 1), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+To https://github.com/sarthak-dhaduk/git-prectical.git
+   a46d2dd..b58fbab  master -> master
+sarthak@sf-cpu-370:~/projects/git-prectical$ git reflog 
+efb434a (HEAD -> b1, firstremote/b1) HEAD@{0}: checkout: moving from master to b1
+b58fbab (firstremote/master, master) HEAD@{1}: commit: git prectical done on master branch
+a46d2dd HEAD@{2}: checkout: moving from b1 to master
+efb434a (HEAD -> b1, firstremote/b1) HEAD@{3}: checkout: moving from master to b1
+a46d2dd HEAD@{4}: checkout: moving from b1 to master
+efb434a (HEAD -> b1, firstremote/b1) HEAD@{5}: commit: remove cherry-pick description part
+6ec39a0 HEAD@{6}: reset: moving to HEAD~1
+900626d HEAD@{7}: commit: 4 points covered
+6ec39a0 HEAD@{8}: reset: moving to HEAD~1
+6bb5c61 HEAD@{9}: checkout: moving from master to b1
+a46d2dd HEAD@{10}: cherry-pick: cherry-pick on b1 branch to master branch
+6ec39a0 HEAD@{11}: checkout: moving from b1 to master
+6bb5c61 HEAD@{12}: commit: cherry-pick on b1 branch to master branch
+6ec39a0 HEAD@{13}: checkout: moving from master to b1
+6ec39a0 HEAD@{14}: rebase (finish): returning to refs/heads/master
+6ec39a0 HEAD@{15}: rebase (start): checkout b1
+bc615c4 HEAD@{16}: checkout: moving from b1 to master
+6ec39a0 HEAD@{17}: commit: description about commit msg
+1f2ca8b HEAD@{18}: checkout: moving from master to b1
+bc615c4 HEAD@{19}: checkout: moving from b1 to master
+1f2ca8b HEAD@{20}: pull firstremote master: Fast-forward
+0a52a02 HEAD@{21}: rebase (continue) (finish): returning to refs/heads/b1
+0a52a02 HEAD@{22}: rebase (continue) (pick): rebase b1 on master branch
+2a77429 HEAD@{23}: commit (amend): edit description file and pull request--
+:...skipping...
+efb434a (HEAD -> b1, firstremote/b1) HEAD@{0}: checkout: moving from master to b1
+b58fbab (firstremote/master, master) HEAD@{1}: commit: git prectical done on master branch
+a46d2dd HEAD@{2}: checkout: moving from b1 to master
+efb434a (HEAD -> b1, firstremote/b1) HEAD@{3}: checkout: moving from master to b1
+a46d2dd HEAD@{4}: checkout: moving from b1 to master
+efb434a (HEAD -> b1, firstremote/b1) HEAD@{5}: commit: remove cherry-pick description part
+6ec39a0 HEAD@{6}: reset: moving to HEAD~1
+900626d HEAD@{7}: commit: 4 points covered
+6ec39a0 HEAD@{8}: reset: moving to HEAD~1
+6bb5c61 HEAD@{9}: checkout: moving from master to b1
+a46d2dd HEAD@{10}: cherry-pick: cherry-pick on b1 branch to master branch
+6ec39a0 HEAD@{11}: checkout: moving from b1 to master
+6bb5c61 HEAD@{12}: commit: cherry-pick on b1 branch to master branch
+6ec39a0 HEAD@{13}: checkout: moving from master to b1
+6ec39a0 HEAD@{14}: rebase (finish): returning to refs/heads/master
+6ec39a0 HEAD@{15}: rebase (start): checkout b1
+bc615c4 HEAD@{16}: checkout: moving from b1 to master
+6ec39a0 HEAD@{17}: commit: description about commit msg
+1f2ca8b HEAD@{18}: checkout: moving from master to b1
+bc615c4 HEAD@{19}: checkout: moving from b1 to master
+1f2ca8b HEAD@{20}: pull firstremote master: Fast-forward
+0a52a02 HEAD@{21}: rebase (continue) (finish): returning to refs/heads/b1
+0a52a02 HEAD@{22}: rebase (continue) (pick): rebase b1 on master branch
+2a77429 HEAD@{23}: commit (amend): edit description file and pull request--
+642715d HEAD@{24}: rebase: fast-forward
+a7099b3 HEAD@{25}: rebase (start): checkout HEAD~2
+bc615c4 HEAD@{26}: rebase (continue) (finish): returning to refs/heads/b1
+bc615c4 HEAD@{27}: rebase: fast-forward
+642715d HEAD@{28}: rebase: fast-forward
+a7099b3 HEAD@{29}: rebase (start): checkout HEAD~2
+bc615c4 HEAD@{30}: rebase (finish): returning to refs/heads/b1
+bc615c4 HEAD@{31}: rebase (start): checkout HEAD~2
+bc615c4 HEAD@{32}: rebase (finish): returning to refs/heads/b1
+bc615c4 HEAD@{33}: rebase (start): checkout HEAD~2
+bc615c4 HEAD@{34}: checkout: moving from master to b1
+bc615c4 HEAD@{35}: rebase (finish): returning to refs/heads/master
+bc615c4 HEAD@{36}: rebase (start): checkout b1
+642715d HEAD@{37}: checkout: moving from b1 to master
+bc615c4 HEAD@{38}: commit: rebase b1 on master branch
+642715d HEAD@{39}: checkout: moving from master to b1
+642715d HEAD@{40}: merge b1: Fast-forward
+a7099b3 HEAD@{41}: checkout: moving from b1 to master
+642715d HEAD@{42}: commit: edit description file and pull request
+a7099b3 HEAD@{43}: checkout: moving from master to b1
+a7099b3 HEAD@{44}: commit (initial): add discription file
+~
+~
+~
+~
+~
+~
+~
+(END)
